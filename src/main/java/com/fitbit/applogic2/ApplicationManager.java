@@ -19,7 +19,7 @@ public class ApplicationManager implements com.fitbit.applogic.ApplicationManage
 
     public ApplicationManager() {
 //        baseUrl = PropertyLoader.loadProperty("site.url");
-        baseUrl = "http//beta.appshed.com/";
+        baseUrl = "https://fitbit.com/";
         String gridHubUrl = PropertyLoader.loadProperty("grid2.hub");
 
         Browser browser = new Browser();

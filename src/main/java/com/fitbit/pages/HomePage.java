@@ -12,7 +12,7 @@ public class HomePage extends AnyPage {
 
     public HomePage(PageManager pages) {super(pages);}
 
-    @FindBy(className = "hdr-login")
+    @FindBy(xpath = "//*[@class='hdr-login']//a[@class='hdr-menu-item']")
     private WebElement loginBtn;
 
     public LoginPage clickLogin() {

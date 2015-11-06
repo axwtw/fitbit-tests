@@ -10,5 +10,6 @@ public interface NavigationHelper {
     void acceptAlert();
     int getSizeOfElements();
     void gotoLoginPage();
+    void gotoSignUpPage();
 
 }

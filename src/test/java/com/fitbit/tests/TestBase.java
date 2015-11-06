@@ -1,6 +1,9 @@
 package com.fitbit.tests;
 
+import com.fitbit.applogic.ApplicationManager;
 import com.fitbit.model.User;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 
 /**
  * Created by sergey on 11/6/15.
@@ -17,4 +20,12 @@ public class TestBase {
             .setBirthYear("1990")
             .setWeight("80")
             .setHeight("180");
+
+    protected ApplicationManager app;
+
+    @BeforeClass
+    public void init() { app = new com.fitbit.applogic2.ApplicationManager(); }
+
+    @AfterSuite
+    public void stop() { app.stop(); }
 }

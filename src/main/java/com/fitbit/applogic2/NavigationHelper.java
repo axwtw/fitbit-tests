@@ -40,7 +40,12 @@ public class NavigationHelper  extends DriverBasedHelper implements com.fitbit.a
 
     @Override
     public void gotoLoginPage() {
-        pages.loginPage.clickLoginBtn();
+        pages.homePage.clickLogin();
+    }
+
+    @Override
+    public void gotoSignUpPage() {
+        pages.loginPage.clickRegisterLink();
     }
 
 
