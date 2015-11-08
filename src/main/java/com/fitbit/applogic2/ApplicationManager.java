@@ -34,7 +34,7 @@ public class ApplicationManager implements com.fitbit.applogic.ApplicationManage
 
         userHelper = new com.fitbit.applogic2.UserHelper(this);
         navHelper = new com.fitbit.applogic2.NavigationHelper(this);
-
+        driver.manage().window().maximize();
         getNavigationHelper().openMainPage();
     }
 

@@ -16,6 +16,8 @@ public class PageManager {
     public PasswordRecoveryPage passwordRecoveryPage;
     public RegistrationPage registrationPage;
     public DashboardPage dashboardPage;
+    public FacebookLoginPage facebookLoginPage;
+    public GoogleLoginPage googleLoginPage;
 
 
 
@@ -26,6 +28,8 @@ public class PageManager {
         passwordRecoveryPage = initElements(new PasswordRecoveryPage(this));
         registrationPage = initElements(new RegistrationPage(this));
         dashboardPage = initElements(new DashboardPage(this));
+        facebookLoginPage = initElements(new FacebookLoginPage(this));
+        googleLoginPage = initElements(new GoogleLoginPage(this));
 
     }
 

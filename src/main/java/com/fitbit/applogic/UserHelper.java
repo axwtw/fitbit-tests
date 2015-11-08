@@ -8,11 +8,14 @@ import com.fitbit.model.User;
 public interface UserHelper {
 
     void loginAs(User user);
+    void loginWithFacebook(User user);
+    void loginWithGoogle(User user);
     void register(User user);
     void logout();
     boolean isLoggedIn();
     boolean isLoggedInAs(User user);
     boolean isNotLoggedIn();
+    String getMessage();
 
 
 }

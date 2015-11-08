@@ -48,5 +48,28 @@ public class NavigationHelper  extends DriverBasedHelper implements com.fitbit.a
         pages.loginPage.clickRegisterLink();
     }
 
+    @Override
+    public void signInByFacebook() {
+        clickFbLoginBtn();
+        switchToNewWindow("Facebook");
+    }
 
+    @Override
+    public void switchToNewWindow(String title) {
+        for (String handle : driver.getWindowHandles()) {
+            try {
+                driver.switchTo().window(handle);
+                String s = driver.getTitle();
+                if (s != null && s.equals(title)) {
+                    break;
+                }
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    @Override
+    public void clickFbLoginBtn() {
+        pages.loginPage.clickLogInWithFacebook();
+    }
 }

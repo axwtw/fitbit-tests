@@ -11,5 +11,8 @@ public interface NavigationHelper {
     int getSizeOfElements();
     void gotoLoginPage();
     void gotoSignUpPage();
+    void switchToNewWindow(String title);
+    void clickFbLoginBtn();
+    void signInByFacebook();
 
 }

@@ -19,6 +19,22 @@ public class UserHelper  extends DriverBasedHelper implements com.fitbit.applogi
 
     @Override
     public void loginAs(User user) {
+        pages.loginPage.ensurePageLoaded()
+                .setEmail(user.getEmail())
+                .setPassword(user.getPassword())
+                .clickLoginBtn();
+    }
+
+    @Override
+    public void loginWithFacebook(User user) {
+        pages.facebookLoginPage
+                .setEmail(user.getEmail())
+                .setPass(user.getPassword())
+                .clickLogin();
+    }
+
+    @Override
+    public void loginWithGoogle(User user) {
 
     }
 
@@ -26,6 +42,7 @@ public class UserHelper  extends DriverBasedHelper implements com.fitbit.applogi
     public void register(User user) {
         pages.registrationPage
                 .ensurePageLoaded()
+                .ensureElementsAreLoaded()
                 .setEmail(user.getEmail())
                 .setPassword(user.getPassword())
                 .clickTermsCheckbox()
@@ -35,8 +52,11 @@ public class UserHelper  extends DriverBasedHelper implements com.fitbit.applogi
                 .setBirthDay(user.getBirthDay())
                 .setBirthMonth(user.getBirthMonth())
                 .setBirthYear(user.getBirthYear())
-                .selectGender(user.getGender())
+                .selectGender()
+                .selectMaleGender()
+                .switchHeightType()
                 .setHeightCentimeters(user.getHeight())
+                .switchWeightType()
                 .switchWeightType()
                 .setWeightKilograms(user.getWeight())
                 .saveProfile();
@@ -61,6 +81,11 @@ public class UserHelper  extends DriverBasedHelper implements com.fitbit.applogi
     @Override
     public boolean isNotLoggedIn() {
         return false;
+    }
+
+    @Override
+    public String getMessage() {
+        return pages.dashboardPage.getMessage();
     }
 
 }

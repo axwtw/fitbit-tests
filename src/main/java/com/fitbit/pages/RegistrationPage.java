@@ -4,6 +4,7 @@ package com.fitbit.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -100,6 +101,9 @@ public class RegistrationPage extends AnyPage {
     @FindBy(xpath = "//*[@class='errorList']/li[8]")
     private WebElement validInchesAlert;
 
+    @FindBy(xpath = "//*[@class='ui-corner-bottom']")
+    private WebElement male;
+
     public WebElement getValidNameAlert() {
         return validNameAlert;
     }
@@ -158,6 +162,13 @@ public class RegistrationPage extends AnyPage {
         return this;
     }
 
+    public RegistrationPage ensureElementsAreLoaded() {
+        super.ensurePageLoaded();
+        wait.until(ExpectedConditions
+                .elementToBeClickable(By.xpath("//input[@class='field email']")));
+        return this;
+    }
+
     public RegistrationPage ensurePageLoaded() {
         super.ensurePageLoaded();
         wait.until(ExpectedConditions
@@ -168,9 +179,11 @@ public class RegistrationPage extends AnyPage {
     public RegistrationPage ensurePersonalInfoPopupIsLoaded() {
         super.ensurePageLoaded();
         wait.until(ExpectedConditions
-                .presenceOfElementLocated(By.id("complete-profile-submit")));
+                .elementToBeClickable(By.id("fullname")));
         return this;
     }
+
+//    public RegistrationPage ensure
 
     public RegistrationPage clickContinueBtn() {
         continueBtn.click();
@@ -192,8 +205,18 @@ public class RegistrationPage extends AnyPage {
         return this;
     }
 
-    public RegistrationPage selectGender(String gender) {
-        new Select(genderSelect).selectByValue(gender);
+    public RegistrationPage switchHeightType() {
+        heightSwitcher.click();
+        return this;
+    }
+
+    public RegistrationPage selectGender() {
+        genderSelect.click();
+        return this;
+    }
+
+    public RegistrationPage selectMaleGender() {
+        male.click();
         return this;
     }
 
@@ -215,21 +238,21 @@ public class RegistrationPage extends AnyPage {
         return this;
     }
 
-    public RegistrationPage setHeightCentimeters(String centimetersVaue) {
+    public RegistrationPage setHeightCentimeters(String centimetersValue) {
         centimetersSelect.clear();
-        centimetersSelect.sendKeys(centimetersVaue);
+        centimetersSelect.sendKeys(centimetersValue);
         return this;
     }
 
-    public RegistrationPage setHeightFeet(String feetVaue) {
+    public RegistrationPage setHeightFeet(String feetValue) {
         feetSelect.clear();
-        feetSelect.sendKeys(feetVaue);
+        feetSelect.sendKeys(feetValue);
         return this;
     }
 
-    public RegistrationPage setHeightInches(String inchesVaue) {
+    public RegistrationPage setHeightInches(String inchesValue) {
         inchesSelect.clear();
-        inchesSelect.sendKeys(inchesVaue);
+        inchesSelect.sendKeys(inchesValue);
         return this;
     }
 
