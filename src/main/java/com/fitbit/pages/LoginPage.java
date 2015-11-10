@@ -73,7 +73,7 @@ public class LoginPage extends AnyPage {
 //        wait.until(ExpectedConditions
 //                .elementToBeClickable(By.xpath("//*[@class='auth-btn auth-btn-facebook track-Auth-SignUp-ClickFacebook']/span")));
         try {
-            Thread.sleep(10000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

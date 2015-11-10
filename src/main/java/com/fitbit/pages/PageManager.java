@@ -18,6 +18,8 @@ public class PageManager {
     public DashboardPage dashboardPage;
     public FacebookLoginPage facebookLoginPage;
     public GoogleLoginPage googleLoginPage;
+    public CommunityPage communityPage;
+    public SearchPage searchPage;
 
 
 
@@ -30,12 +32,14 @@ public class PageManager {
         dashboardPage = initElements(new DashboardPage(this));
         facebookLoginPage = initElements(new FacebookLoginPage(this));
         googleLoginPage = initElements(new GoogleLoginPage(this));
+        communityPage = initElements(new CommunityPage(this));
+        searchPage = initElements(new SearchPage(this));
 
     }
 
     private <T extends Page> T initElements(T page) {
-        //PageFactory.initElements(driver, page);
-    PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), page);
+        PageFactory.initElements(driver, page);
+//    PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), page);
 //        PageFactory.initElements(new DisplayedElementLocatorFactory(driver, 10), page);
         return page;
     }

@@ -16,6 +16,7 @@ public interface UserHelper {
     boolean isLoggedInAs(User user);
     boolean isNotLoggedIn();
     String getMessage();
+    void search(String query);
 
 
 }

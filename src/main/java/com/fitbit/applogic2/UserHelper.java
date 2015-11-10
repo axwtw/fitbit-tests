@@ -54,9 +54,9 @@ public class UserHelper  extends DriverBasedHelper implements com.fitbit.applogi
                 .setBirthYear(user.getBirthYear())
                 .selectGender()
                 .selectMaleGender()
-                .switchHeightType()
+//                .switchHeightType()
                 .setHeightCentimeters(user.getHeight())
-                .switchWeightType()
+//                .switchWeightType()
                 .switchWeightType()
                 .setWeightKilograms(user.getWeight())
                 .saveProfile();
@@ -86,6 +86,11 @@ public class UserHelper  extends DriverBasedHelper implements com.fitbit.applogi
     @Override
     public String getMessage() {
         return pages.dashboardPage.getMessage();
+    }
+
+    @Override
+    public void search(String query) {
+        pages.communityPage.setSearchQuery(query).submitSearch();
     }
 
 }

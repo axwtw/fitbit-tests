@@ -14,5 +14,8 @@ public interface NavigationHelper {
     void switchToNewWindow(String title);
     void clickFbLoginBtn();
     void signInByFacebook();
+    void switchToMainWindowHandle();
+    String getTitleOfPage();
+    void openCommunityPage();
 
 }

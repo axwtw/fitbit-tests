@@ -1,21 +1,22 @@
 package com.fitbit.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.Assert;
 
 /**
- * Created by сергий on 08.11.2015.
+ * Created by sergey on 11/10/15.
  */
-public class LoginTest extends TestBase {
+public class SearchTest extends TestBase {
 
     @Test
-    public void logInByFacebook() {
+    public void searchTest() {
         app.getNavigationHelper().gotoLoginPage();
         app.getNavigationHelper().signInByFacebook();
         app.getUserHelper().loginWithFacebook(facebookUser);
         app.getNavigationHelper().switchToMainWindowHandle();
-        Assert.assertEquals(app.getNavigationHelper().getTitleOfPage(), "Fitbit Dashboard");
+        app.getNavigationHelper().openCommunityPage();
+        app.getUserHelper().search("Surge");
+        Assert.assertTrue(app.getNavigationHelper().getSizeOfElements() > 0);
     }
-
 
 }

@@ -35,7 +35,7 @@ public class NavigationHelper  extends DriverBasedHelper implements com.fitbit.a
 
     @Override
     public int getSizeOfElements() {
-        return 0;
+        return pages.searchPage.getResultsSize();
     }
 
     @Override
@@ -52,6 +52,21 @@ public class NavigationHelper  extends DriverBasedHelper implements com.fitbit.a
     public void signInByFacebook() {
         clickFbLoginBtn();
         switchToNewWindow("Facebook");
+    }
+
+    @Override
+    public void switchToMainWindowHandle() {
+        switchToNewWindow("Fitbit Dashboard");
+    }
+
+    @Override
+    public String getTitleOfPage() {
+        return driver.getTitle();
+    }
+
+    @Override
+    public void openCommunityPage() {
+        driver.get("https://community.fitbit.com");
     }
 
     @Override
